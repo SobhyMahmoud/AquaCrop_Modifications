@@ -92,6 +92,9 @@ NewCond = AOS_RootDevelopment(Crop,Soil,Groundwater,NewCond,GDD,GrowingSeason);
 % 8. Capillary rise
 [NewCond,CR] = AOS_CapillaryRise(Soil,Groundwater,NewCond,FluxOut);
 
+% 8.1 Capillary riseSSD
+[NewCond,CRSSD] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,NewCond,FluxOut);
+
 % 9. Check germination
 NewCond = AOS_Germination(NewCond,Soil,Crop,GDD,GrowingSeason);
 
@@ -168,7 +171,7 @@ Outputs.WaterContents(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
 % Water fluxes
 Outputs.WaterFluxes(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
     GrowingSeason,Wr,NewCond.zGW,NewCond.SurfaceStorage,IrrDay,Infl,Runoff,...
-    DeepPerc,CR,GwIn,Es,EsPot,Tr,TrPot];
+    DeepPerc,CR,GwIn,Es,EsPot,Tr,TrPot,CRSSD];
 % Crop growth
 Outputs.CropGrowth(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
     GrowingSeason,GDD,NewCond.GDDcum,NewCond.Zroot,NewCond.CC,NewCond.CC_NS,...

@@ -77,15 +77,15 @@ Runoff = 0;
     zBot = cumsum(Soil.Comp.dz);
     zTop = zBot-Soil.Comp.dz;
     zMid = (zTop+zBot)/2;
-    
-    IrrMngt.zdripper
-    zMid
-    % For compartments below water table, set to saturation %
+   
     idx = find(zMid >= IrrMngt.zdripper,1);
-    idx
-    Soil.nComp
-    ii = idx-1;
-    disp(ii)
+   
+    if idx > 0
+        ii = idx-1;
+    end
+    
+    [NewCondSSD,CRSSD] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,InitCond,FluxOut);
+    ToStore = ToStore - CRSSD;
 %% Infiltrate incoming water %%
 if ToStore > 0
     while (ToStore > 0) && (ii < Soil.nComp)
