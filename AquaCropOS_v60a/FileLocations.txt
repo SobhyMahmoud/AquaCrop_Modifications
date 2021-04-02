@@ -1,0 +1,4 @@
+%% ------------------- Enter Location of Input files ------------------- %%
+F:\sobhy\so\PhD\AquaCropOS\aquacropos_v60a\aquacropos_v60a\AquaCropOS_v60a\Input
+%% ------------------ Enter Location of Output files ------------------- %%
+F:\sobhy\so\PhD\AquaCropOS\aquacropos_v60a\aquacropos_v60a\AquaCropOS_v60a\Output
