@@ -1,2 +1,0 @@
-Season    CropType    PlantDate      PlantSimDate        HarvestDate    HarvestSimDate      Yield       TotIrr      
-1         Melon       23/05/2016     1                   10/08/2016     80                  4.84        270.00      

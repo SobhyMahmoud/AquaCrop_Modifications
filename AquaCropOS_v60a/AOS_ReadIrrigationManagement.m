@@ -16,7 +16,7 @@ nCrops = length(Crops);
 IrrMngtStruct = struct();
 % Define variable names 
 varnames = {'IrrMethod';'IrrInterval';'SMT1';'SMT2';'SMT3';'SMT4';'MaxIrr';...
-    'AppEff';'NetIrrSMT';'WetSurf'};
+    'AppEff';'NetIrrSMT';'WetSurf';'zdripper'};
 
 for ii = 1:nCrops
     % Open file

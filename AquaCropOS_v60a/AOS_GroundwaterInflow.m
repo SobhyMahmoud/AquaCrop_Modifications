@@ -7,6 +7,11 @@ NewCond = InitCond;
 GwIn = 0;
 
 %% Perform calculations %%
+if NewCond.WTinSoil == true
+    % Water table in soil profile. Calculate horizontal inflow.
+    % Get groundwater table elevation on current day
+    zGW = NewCond.zGW;
+    
     % Find compartment mid-points
     zBot = cumsum(Soil.Comp.dz);
     zTop = zBot-Soil.Comp.dz;

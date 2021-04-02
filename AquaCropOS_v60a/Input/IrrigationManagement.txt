@@ -10,3 +10,4 @@ MelonnonmulchIrrigationSchedule.txt      : Irrigation time-series filename (when
 90                                       : Irrigation application efficiency (%)
 80                                       : Net irrigation threshold moisture level (% of TAW that will be maintained)
 30                                       : Soil surface wetted by irrigation (%)
+0                                        : Specify dripper depth(zdriper, m)(zdripper=0 means suface drip, zdripper>0 means subsurface drip)

@@ -78,14 +78,9 @@ Runoff = 0;
     zTop = zBot-Soil.Comp.dz;
     zMid = (zTop+zBot)/2;
     
-    IrrMngt.zdripper
-    zMid
     % For compartments below water table, set to saturation %
-    idx = find(zMid >= IrrMngt.zdripper,1);
-    idx
-    Soil.nComp
-    ii = idx-1;
-    disp(ii)
+    idx = find(zMid >= zdriper);
+
 %% Infiltrate incoming water %%
 if ToStore > 0
     while (ToStore > 0) && (ii < Soil.nComp)
