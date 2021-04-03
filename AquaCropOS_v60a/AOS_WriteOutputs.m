@@ -22,7 +22,7 @@ if AOS_ClockStruct.ModelTermination == true
         fid = fopen(strcat(FileLoc,FileName,'_WaterFluxes.txt'),'a+t');
         fprintf(fid,strcat('%-10d%-10d%-10d%-10d%-10d%-15.2f%-15.2f%-15.2f',...
             '%-15.2f%-15.2f%-15.2f%-15.2f%-15.2f%-15.2f%-15.2f%-15.2f%-15.2f',...
-            '%-15.2f\n'),AOS_InitialiseStruct.Outputs.WaterFluxes');
+            '%-15.2f%-15.2f\n'),AOS_InitialiseStruct.Outputs.WaterFluxes');
         fclose(fid);
         % Crop growth
         fid = fopen(strcat(FileLoc,FileName,'_CropGrowth.txt'),'a+t');
