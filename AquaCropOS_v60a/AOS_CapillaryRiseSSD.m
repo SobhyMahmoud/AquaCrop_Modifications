@@ -7,29 +7,32 @@ NewCond = InitCond;
 %% Get emitter depth %%
 zEmitter = IrrMngt.zdripper;
 
+if InitCond.DAP == 2
+    InitCond.DAP
+end    
+
 CrTot = 0;
 % Note: irrigation amount adjusted for specified application efficiency
 
     NetIrr =(Irr*(IrrMngt.AppEff/100));
     
-    NetIrr
     
 %% Calculate capillary rise %%
 if IrrMngt.zdripper == 0  % surface drip irrigation
     % Capillary rise is zero
     CrTot = 0;
-elseif IrrMngt.zdripper > 0 && NetIrr > Soil.Layer.Ksat(1)% SSD present
+elseif IrrMngt.zdripper > 0  % SSD present
     % Get maximum capillary rise for bottom compartment
     zBot = sum(Soil.Comp.dz);
     zBotMid = zBot-(Soil.Comp.dz(Soil.nComp)/2);
     layeri = Soil.Comp.Layer(Soil.nComp);
     if (Soil.Layer.Ksat(layeri) > 0) && (zEmitter > 0) && ((zEmitter-zBotMid) < 4)
         if zBotMid >= zEmitter
-            MaxCR = 99;
+            MaxCR = NetIrr;
         else
             MaxCR = exp((log(zEmitter-zBotMid)-Soil.Layer.bCR(layeri))/Soil.Layer.aCR(layeri));
-            if MaxCR > 99
-                MaxCR = 99;
+            if MaxCR > NetIrr
+                MaxCR = NetIrr;
             end
         end
     else
@@ -49,12 +52,12 @@ elseif IrrMngt.zdripper > 0 && NetIrr > Soil.Layer.Ksat(1)% SSD present
         layeri = layeri+1;
         if (Soil.Layer.Ksat(layeri) > 0) && (zEmitter > 0) && ((zEmitter-zTopLayer) < 4)
             if zTopLayer >= zEmitter
-                LimCR = 99;
+                LimCR = NetIrr;
             else
                 LimCR = exp((log(zEmitter-zTopLayer)-Soil.Layer.bCR(layeri))/...
                     Soil.Layer.aCR(layeri));
-                if LimCR > 99
-                    LimCR = 99;
+                if LimCR > NetIrr
+                    LimCR = NetIrr;
                 end
             end
         else
@@ -127,14 +130,15 @@ elseif IrrMngt.zdripper > 0 && NetIrr > Soil.Layer.Ksat(1)% SSD present
             zBotMid = zBot-(Soil.Comp.dz(compi)/2);
             if (Soil.Layer.Ksat(layeri) > 0) && (zEmitter > 0) && ((zEmitter-zBotMid) < 4)
                 if zBotMid >= zEmitter
-                    LimCR = 99;
+                    LimCR = NetIrr;
                 else
                     LimCR = exp((log(zEmitter-zBotMid)-Soil.Layer.bCR(layeri))/...
                         Soil.Layer.aCR(layeri));
-                    if LimCR > 99
-                        LimCR = 99;
+                    if LimCR > NetIrr
+                        LimCR = NetIrr;
                     end
                 end
+                
             else
                 LimCR = 0;
             end
