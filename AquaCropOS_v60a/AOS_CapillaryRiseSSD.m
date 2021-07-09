@@ -71,7 +71,7 @@ elseif IrrMngt.zdripper > 0  % SSD present
     % Calculate capillary rise
     compi = Soil.nComp; % Start at bottom of root zone
     WCr = 0; % Capillary rise counter
-    while (round(MaxCR*1000)>0) && (compi > 0) && (round(FluxOut(compi)*1000) == 0)
+    while (round(MaxCR*1000)>0) && (compi > 0) 
         % Proceed upwards until maximum capillary rise occurs, soil surface
         % is reached, or encounter a compartment where downward
         % drainage/infiltration has already occurred on current day       

@@ -1,5 +1,5 @@
 function [NewCond,DeepPerc,RunoffTot,Infl,FluxOut] = AOS_Infiltration(Soil,...
-    InitCond,Infl,Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc0,Runoff0,GrowingSeason,CRSSD)
+    InitCond,Infl,Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc0,Runoff0,GrowingSeason)
 % Function to infiltrate incoming water (rainfall and irrigation)
 
 %% Store initial conditions in new structure for updating %%
@@ -85,11 +85,7 @@ Runoff = 0;
     end
     
    % [NewCondSSD,CRSSD] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,NewCond,FluxOut);
-if InitCond.DAP == 2
-    InitCond.DAP
-end  
-   ToStore = ToStore - CRSSD;
-    
+    ToStore = ToStore - CRSSD;
 %% Infiltrate incoming water %%
 if ToStore > 0
     while (ToStore > 0) && (ii < Soil.nComp)

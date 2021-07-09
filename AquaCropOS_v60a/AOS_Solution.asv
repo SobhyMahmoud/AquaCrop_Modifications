@@ -88,10 +88,9 @@ NewCond = AOS_RootDevelopment(Crop,Soil,Groundwater,NewCond,GDD,GrowingSeason);
 % 8.1 Capillary riseSSD
 [NewCond,CRSSD] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,NewCond,FluxOut);
 
-
 % 7. Infiltration
 [NewCond,DeepPerc,Runoff,Infl,FluxOut] = AOS_Infiltration(Soil,NewCond,Infl,...
-    Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc,Runoff,GrowingSeason,CRSSD);
+    Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc,Runoff,GrowingSeason);
 
 % 8. Capillary rise
 [NewCond,CR] = AOS_CapillaryRise(Soil,Groundwater,NewCond,FluxOut);
