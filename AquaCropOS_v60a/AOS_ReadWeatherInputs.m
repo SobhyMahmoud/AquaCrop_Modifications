@@ -18,7 +18,7 @@ if fileID == -1
 end
 
 % Load data in
-Data = textscan(fileID,'%f %f %f %f %f %f %f','headerlines',2);
+Data = textscan(fileID,'%f %f %f %f %f %f %f %f %f','headerlines',2);
 fclose(fileID);
 
 %% Convert dates to serial date format %%
@@ -29,6 +29,8 @@ Tmin = Data{1,4};
 Tmax = Data{1,5};
 P = Data{1,6};
 Et0 = Data{1,7};
+Ts = Data{1,8};
+Tsf = Data{1,9};
 
 %% Extract data for simulation period %%
 % Find start and end dates
@@ -40,6 +42,7 @@ EndRow = find(Dates==EndDate);
 % Store data for simulation period
 WeatherDB = [Dates(StartRow:EndRow),Tmin(StartRow:EndRow),...
     Tmax(StartRow:EndRow),P(StartRow:EndRow),...
-    Et0(StartRow:EndRow)];
+    Et0(StartRow:EndRow),Ts(StartRow:EndRow),...
+	Tsf(StartRow:EndRow)];
 
 end

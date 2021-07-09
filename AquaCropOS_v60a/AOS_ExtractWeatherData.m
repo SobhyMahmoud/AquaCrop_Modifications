@@ -18,6 +18,8 @@ Weather.MinTemp = WeatherDB(Row,2);
 Weather.MaxTemp = WeatherDB(Row,3);
 Weather.Precipitation = WeatherDB(Row,4);
 Weather.ReferenceET = WeatherDB(Row,5);
+Weather.Ts = WeatherDB(Row,6);
+Weather.Tsf = WeatherDB(Row,7);
 
 end
 

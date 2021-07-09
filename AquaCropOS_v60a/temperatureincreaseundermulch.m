@@ -8,11 +8,24 @@ Tmin = Weather.MinTemp;
 Tmax = Weather.MaxTemp;
 Tmean = (Tmax+Tmin)/2;
 
-Ts=0.89+1.017*Tmean;
-%Ts is the soil temperature at 5 cm depth without mulching
+TsInput = Weather.Ts;
+TsfInput = Weather.Tsf;
 
-Tsf=7.5725+0.8303*Tmean;
+if TsInput > -999 
+Ts = TsInput;
+else 
+%Ts is the soil temperature at 5 cm depth without mulching
+Ts=0.89+1.017*Tmean;
+end;
+
+
+if TsfInput > -999
+ Tsf = TsfInput;
+else 
 %Tsf is the soil temperature at 5 cm depth under film mulch mulching
+Tsf=7.5725+0.8303*Tmean;
+end;
+
 %gdd=GDDcum(Crop.Canopy10Pct);
 GDD = Tmean-Crop.Tbase;
 if GDD> 0 && GDD<= Crop.Canopy10Pct
