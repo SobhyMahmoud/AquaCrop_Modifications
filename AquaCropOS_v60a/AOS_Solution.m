@@ -123,8 +123,10 @@ NewCond = AOS_HIrefCurrentDay(NewCond,Crop,GrowingSeason);
 % 16. Biomass accumulation
 NewCond = AOS_BiomassAccumulation(Crop,NewCond,Tr,TrPot_NS,Et0,GrowingSeason);
 
+
+
 % 17. Harvest index
-NewCond = AOS_HarvestIndex(Soil,Crop,NewCond,Et0,Tmax,Tmin,GrowingSeason);
+NewCond = AOS_HarvestIndex(Soil,Crop,NewCond,Et0,Tmax,Tmin,GrowingSeason,FieldMngt);
 
 % 18. Crop yield
 if GrowingSeason == true

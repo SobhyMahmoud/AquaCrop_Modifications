@@ -1,5 +1,14 @@
-function [Kst] = AOS_TemperatureStress(Crop,Tmax,Tmin)
+function [Kst] = AOS_TemperatureStress(Crop,Tmax,Tmin,FieldMngt)
 % Function to calculate temperature stress coefficients
+
+%% conditions in case Mulches present
+if FieldMngt.Mulches == 'Y'
+    %mulches present
+	[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop);
+	Tmax = Tmax + deltaT;
+	Tmin = Tmin + deltaT;
+
+end
 
 %% Calculate temperature stress coefficients affecting crop pollination %%
 % Get parameters for logistic curve
