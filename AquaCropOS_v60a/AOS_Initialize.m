@@ -57,7 +57,7 @@ AOS_InitialiseStruct.Outputs.WaterFluxes = zeros(...
     length(AOS_ClockStruct.TimeSpan),19);
 AOS_InitialiseStruct.Outputs.WaterFluxes(:,[4,6:end]) = -999;
 AOS_InitialiseStruct.Outputs.CropGrowth = zeros(...
-    length(AOS_ClockStruct.TimeSpan),15);
+    length(AOS_ClockStruct.TimeSpan),18);
 AOS_InitialiseStruct.Outputs.CropGrowth(:,[4,6:end]) = -999;
 AOS_InitialiseStruct.Outputs.FinalOutput = cell(AOS_ClockStruct.nSeasons,8);
 % Store dates in daily matrices
@@ -90,9 +90,9 @@ if strcmp(AOS_InitialiseStruct.FileLocation.WriteDaily,'Y')
     % Crop growth (daily)
     fid = fopen(strcat(FileLoc,FileLocation.OutputFilename,'_CropGrowth.txt'),'w+t');
     fprintf(fid,strcat('%-10s%-10s%-10s%-10s%-10s%-15s%-15s%-15s%-15s%-15s',...
-        '%-15s%-15s%-15s%-15s%-15s\n'),'Year','Month','Day',...
+        '%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n'),'Year','Month','Day',...
         'SimDay','Season','GDD','TotGDD','Zr','CC','CCPot','Bio',...
-        'BioPot','HI','HIadj','Yield');
+        'BioPot','HI','HIadj','Yield','Ts','Tsf','DeltaT');
     fclose(fid);
 end
 

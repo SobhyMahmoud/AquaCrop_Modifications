@@ -149,6 +149,9 @@ end
 % 20. Update net irrigation to add any pre irrigation
 IrrNet = IrrNet+PreIrr;
 NewCond.IrrNetCum = NewCond.IrrNetCum+PreIrr;
+
+%21. get Ts , Tsf, deltaT to print them
+[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop);
     
 %% Update model outputs %%
 Outputs = AOS_InitialiseStruct.Outputs;
@@ -179,7 +182,7 @@ Outputs.WaterFluxes(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
 % Crop growth
 Outputs.CropGrowth(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
     GrowingSeason,GDD,NewCond.GDDcum,NewCond.Zroot,NewCond.CC,NewCond.CC_NS,...
-    NewCond.B,NewCond.B_NS,NewCond.HI,NewCond.HIadj,NewCond.Y];
+    NewCond.B,NewCond.B_NS,NewCond.HI,NewCond.HIadj,NewCond.Y,Ts,Tsf,deltaT];
 % Final output (if at end of growing season) 
 if AOS_ClockStruct.SeasonCounter > 0
     if ((NewCond.CropMature == true) || (NewCond.CropDead == true) ||...
