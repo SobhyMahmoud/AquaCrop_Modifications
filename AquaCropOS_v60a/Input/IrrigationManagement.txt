@@ -6,7 +6,7 @@ MelonnonmulchIrrigationSchedule.txt      : Irrigation time-series filename (when
 70                                       : Soil moisture target in 2nd growth stage (% of TAW below which irrigation is triggered)
 70                                       : Soil moisture target in 3rd growth stage (% of TAW below which irrigation is triggered)
 70                                       : Soil moisture target in 4th growth stage (% of TAW below which irrigation is triggered)
-35                                       : Maximum irrigation depth (mm/day)
+90                                       : Maximum irrigation depth (mm/day)
 90                                       : Irrigation application efficiency (%)
 80                                       : Net irrigation threshold moisture level (% of TAW that will be maintained)
 30                                       : Soil surface wetted by irrigation (%)
