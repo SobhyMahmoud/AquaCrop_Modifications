@@ -1,10 +1,10 @@
-function [Kst] = AOS_TemperatureStress(Crop,Tmax,Tmin,FieldMngt)
+function [Kst] = AOS_TemperatureStress(Crop,Tmax,Tmin,FieldMngt,NewCond)
 % Function to calculate temperature stress coefficients
 
 %% conditions in case Mulches present
 if FieldMngt.Mulches == 'Y'
     %mulches present
-	[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop);
+	[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop,NewCond);
 	Tmax = Tmax + deltaT;
 	Tmin = Tmin + deltaT;
 

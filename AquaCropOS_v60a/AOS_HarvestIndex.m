@@ -26,7 +26,7 @@ if GrowingSeason == true
     Ksw = AOS_WaterStress(Crop,NewCond,Dr,TAW,Et0,beta);
 
     % Calculate temperature stress
-    Kst = AOS_TemperatureStress(Crop,Tmax,Tmin,FieldMngt);
+    Kst = AOS_TemperatureStress(Crop,Tmax,Tmin,FieldMngt,NewCond);
 
     % Get reference harvest index on current day
     HIi = NewCond.HIref;
