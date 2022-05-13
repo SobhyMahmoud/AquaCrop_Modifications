@@ -3,4 +3,4 @@ Y           : Water table considered (Y or N)
 Constant    : Water table input data ('Constant' or 'Variable')
 %% -------------------- Water table observations (m) ------------------- %%
 Date(dd/mm/yyyy)    Depth(m)
-01/05/2016          2
+01/09/2021          7
