@@ -4,4 +4,4 @@ N                       : Specified crop rotation calendar (Y or N)
 CropRotation.txt        : Crop rotation filename
 %% ---------------- Information about each crop type ------------------- %%
 CropType   CropFilename   IrrigationFilename         FieldMngtFilename
-Melon      Meloncrop.txt       IrrigationManagement.txt   FieldManagement.txt
+Tomato    Crop_TomatoGDD21.txt       IrrigationManagement.txt   FieldManagement.txt

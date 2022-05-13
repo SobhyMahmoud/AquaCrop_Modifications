@@ -1,6 +1,6 @@
 %% ------------------ Input filenames for AquaCropOS ------------------ %%
-Clockmelonnonmulch.txt          : Clock filename
-Weathervalenzano2016.txt        : Weather filename
+ClockTomato.txt                 : Clock filename
+WeatherShoubra2021.txt          : Weather filename
 CropMix.txt                     : Crop mix filename
 Soil.txt                        : Soil parameters filename
 FieldManagement_OffSeason.txt   : Field management (fallow period) filename

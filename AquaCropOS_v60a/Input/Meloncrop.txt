@@ -3,8 +3,8 @@
 0           : Planting method (0 = Transplanted, 1 =  Sown)
 1           : Calendar Type (1 = Calendar days, 2 = Growing degree days)
 1           : Convert calendar to GDD mode if inputs are given in calendar days (0 = No; 1 = Yes)
-23/05       : Planting Date (dd/mm)
-18/08       : Latest Harvest Date (dd/mm)
+06/09       : Planting Date (dd/mm)
+25/01       : Latest Harvest Date (dd/mm)
 9           : Growing degree/Calendar days from sowing to emergence/transplant recovery
 58          : Growing degree/Calendar days from sowing to maximum rooting
 72          : Growing degree/Calendar days from sowing to senescence
@@ -25,7 +25,7 @@
 12          : Minimum growing degree days (degC/day) required for full crop transpiration potential
 0           : Growing degree days (degC/day) at which no crop transpiration occurs
 0.25        : Minimum effective rooting depth (m)
-0.7         : Maximum rooting depth (m)
+0.6         : Maximum rooting depth (m)
 1.9         : Shape factor describing root expansion
 0.0350      : Maximum root water extraction at top of the root zone (m3/m3/day)
 0.0090      : Maximum root water extraction at the bottom of the root zone (m3/m3/day)

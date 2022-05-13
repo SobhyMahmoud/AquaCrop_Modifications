@@ -1,3 +1,6 @@
 %% ------------- Soil hydraulic properties for AquaCropOS -------------- %%
 Layer    Thickness(m)    thS(m3/m3)    thFC(m3/m3)    thWP(m3/m3)    Ksat(mm/day)    Penetrability(%)
-1        4.0             0.50          0.30           0.10           500             100
+1        0.15             0.481          0.355           0.207           125             100
+2        0.15             0.487          0.363           0.217           124             100
+3        0.15             0.492          0.386           0.250           122             100
+4        0.25             0.499          0.391           0.255           120             100
