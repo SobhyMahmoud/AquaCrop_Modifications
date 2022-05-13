@@ -33,7 +33,7 @@ end
 %% conditions in case Mulches present
 if FieldMngt.Mulches == 'Y'
     %mulches present
-	[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop);
+	[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop,NewCond);
 %    printf('deltaT %s',deltaT);
 %    printf('Ts %s',Ts);
 %    printf('Tsf %s',Tsf);

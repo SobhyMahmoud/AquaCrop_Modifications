@@ -1,4 +1,4 @@
-function [ deltaT, Ts, Tsf] = temperatureincreaseundermulch(Crop)
+function [ deltaT, Ts, Tsf] = temperatureincreaseundermulch(Crop,NewCond)
 % temperatureincreaseundermulch (?T)
 %   above the soil underneath a film cover 
 
@@ -27,14 +27,14 @@ Tsf=7.5725+0.8303*Tmean;
 end;
 
 %gdd=GDDcum(Crop.Canopy10Pct);
-GDD = Tmean-Crop.Tbase;
+GDD = NewCond.GDDcum;
 if GDD> 0 && GDD<= Crop.Canopy10Pct
 %C is a coefficient from 0 to 1, C=0.51 from emergence to recovering,
 %c=0.22 from recovering to flowering and equal zero after flower because the film cover will be heavily shaded.
     c=0.51;
 elseif GDD>Crop.Canopy10Pct && GDD <=Crop.Flowering
     c=0.22;
-elseif GDD>Crop.Flowering
+elseif GDD== 0 || GDD>Crop.Flowering
     c=0;
 end
 

@@ -151,7 +151,7 @@ IrrNet = IrrNet+PreIrr;
 NewCond.IrrNetCum = NewCond.IrrNetCum+PreIrr;
 
 %21. get Ts , Tsf, deltaT to print them
-[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop);
+[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop,NewCond);
     
 %% Update model outputs %%
 Outputs = AOS_InitialiseStruct.Outputs;
