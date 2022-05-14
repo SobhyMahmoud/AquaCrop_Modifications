@@ -10,4 +10,4 @@ MelonT100M1Val16IrrigationSchedule.txt   : Irrigation time-series filename (when
 90                                       : Irrigation application efficiency (%)
 80                                       : Net irrigation threshold moisture level (% of TAW that will be maintained)
 30                                       : Soil surface wetted by irrigation (%)
-0.2										 : Specify dripper depth(zdriper, m)(if Zdriper=0 it's surface drip, if Zdriper>0 it's subsurface drip)
+0 					 : Specify dripper depth(zdriper, m)(if Zdriper=0 it's surface drip, if Zdriper>0 it's subsurface drip)
