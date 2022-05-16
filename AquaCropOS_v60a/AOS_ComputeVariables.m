@@ -261,6 +261,8 @@ ParamStruct.CO2.CurrentConc = ParamStruct.CO2.Data((ParamStruct.CO2.Data(:,1)==Y
 % Get CO2 weighting factor for first year
 CO2ref = ParamStruct.CO2.RefConc;
 CO2conc = ParamStruct.CO2.CurrentConc;
+fprintf(' CO2ref: %i\n', CO2ref);
+fprintf(' CO2conc: %i\n', CO2conc);
 if CO2conc <= CO2ref
     fw = 0;
 else
@@ -270,7 +272,10 @@ else
         fw = 1-((550-CO2conc)/(550-CO2ref));
     end
 end
-
+fprintf(' fw: %i\n', fw);
+fprintf(' bsted: %i\n', ParamStruct.Crop.(CropNames{ii}).bsted);
+fprintf(' fsink: %i\n', ParamStruct.Crop.(CropNames{ii}).fsink);
+fprintf(' bface: %i\n', ParamStruct.Crop.(CropNames{ii}).bface);
 % Determine adjustment for each crop in first year of simulation
 for ii = 1:nCrops
 % Determine initial adjustment
@@ -288,6 +293,7 @@ elseif ParamStruct.Crop.(CropNames{ii}).WP <= 20
 else
     ftype = (40-ParamStruct.Crop.(CropNames{ii}).WP)/(40-20);
 end
+fprintf(' fco2: %i\n', fCO2);
 % Total adjustment
 ParamStruct.Crop.(CropNames{ii}).fCO2 = 1+ftype*(fCO2-1);
 end
