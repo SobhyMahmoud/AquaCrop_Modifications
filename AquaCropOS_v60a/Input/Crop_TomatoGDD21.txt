@@ -33,7 +33,7 @@
 16667       : Number of plants per hectare
 0.70        : Maximum canopy cover (fraction of soil cover)
 0.06482     : Canopy decline coefficient (fraction per GDD/calendar day)
-0.1668      : Canopy growth coefficient (fraction per GDD)
+0.1908      : Canopy growth coefficient (fraction per GDD)
 1.1         : Crop coefficient when canopy growth is complete but prior to senescence
 0.15        : Decline of crop coefficient due to ageing (%/day)
 18          : Water productivity normalized for ET0 and C02 (g/m2)
