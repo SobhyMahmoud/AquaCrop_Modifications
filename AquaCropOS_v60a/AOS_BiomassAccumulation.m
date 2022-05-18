@@ -25,8 +25,7 @@ if GrowingSeason == true
     else
         WPadj = Crop.WP;
     end
-	%fprintf(' WPadj: %i\n', WPadj);
-	%fprintf(' Crop.fCO2: %i\n', Crop.fCO2);
+
     % Adjust WP for CO2 effects
     WPadj = WPadj*Crop.fCO2;
 

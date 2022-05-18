@@ -1,9 +1,8 @@
-function [GDD,NewCond] = AOS_GrowingDegreeDay(Crop,InitCond,Tmax,Tmin,FieldMngt)
+function [GDD,NewCond] = AOS_GrowingDegreeDay(Crop,InitCond,Tmax,Tmin)
 % Function to calculate number of growing degree days on current day
 
 %% Store initial conditions for updating %% 
 NewCond = InitCond;
-
 
 %% Calculate GDDs %%
 if Crop.GDDmethod == 1
@@ -29,17 +28,6 @@ elseif Crop.GDDmethod == 3
     Tmean(Tmean<Crop.Tbase) = Crop.Tbase;
     GDD = Tmean-Crop.Tbase;
 end
-
-%% conditions in case Mulches present
-if FieldMngt.Mulches == 'Y'
-    %mulches present
-	[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop,NewCond);
-%    printf('deltaT %s',deltaT);
-%    printf('Ts %s',Ts);
-%    printf('Tsf %s',Tsf);
-    GDD = GDD + deltaT;    
-end
-
 
 %% Update cumulative GDD counter %%
 NewCond.GDDcum = InitCond.GDDcum+GDD;

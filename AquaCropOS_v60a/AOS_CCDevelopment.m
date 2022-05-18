@@ -11,9 +11,7 @@ if strcmp(Mode,'Growth')
     % Exponential growth stage
     CC = CCo*exp(CGC*dt);
     if CC > (CCx/2)
-        % Exponential decay stagetemperatureincreaseundermulch
- 
-
+        % Exponential decay stage
         CC = CCx-0.25*(CCx/CCo)*CCx*exp(-CGC*dt);
     end
     % Limit CC to CCx

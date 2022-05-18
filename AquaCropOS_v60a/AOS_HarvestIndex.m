@@ -1,5 +1,5 @@
 function [ NewCond ] = AOS_HarvestIndex(Soil,Crop,InitCond,Et0,Tmax,...
-    Tmin,GrowingSeason,FieldMngt)
+    Tmin,GrowingSeason)
 % Function to simulate build up of harvest index
 
 %% Store initial conditions for updating %%
@@ -26,7 +26,7 @@ if GrowingSeason == true
     Ksw = AOS_WaterStress(Crop,NewCond,Dr,TAW,Et0,beta);
 
     % Calculate temperature stress
-    Kst = AOS_TemperatureStress(Crop,Tmax,Tmin,FieldMngt,NewCond);
+    Kst = AOS_TemperatureStress(Crop,Tmax,Tmin);
 
     % Get reference harvest index on current day
     HIi = NewCond.HIref;

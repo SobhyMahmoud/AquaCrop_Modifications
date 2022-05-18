@@ -56,7 +56,7 @@ if GrowingSeason == true
     % Calendar days after planting
     NewCond.DAP = NewCond.DAP+1;
     % Growing degree days after planting
-    [GDD,NewCond] = AOS_GrowingDegreeDay(Crop,NewCond,Tmax,Tmin,FieldMngt);
+    [GDD,NewCond] = AOS_GrowingDegreeDay(Crop,NewCond,Tmax,Tmin);
 else
     % Calendar days after planting
     NewCond.DAP = 0;
@@ -85,17 +85,12 @@ NewCond = AOS_RootDevelopment(Crop,Soil,Groundwater,NewCond,GDD,GrowingSeason);
 [NewCond,Irr] = AOS_Irrigation(NewCond,IrrMngt,Crop,Soil,...
     AOS_ClockStruct,GrowingSeason,P,Runoff); 
 
-% 8.1 Capillary riseSSD
-[NewCond,CRSSD] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,NewCond,FluxOut);
-
-
 % 7. Infiltration
 [NewCond,DeepPerc,Runoff,Infl,FluxOut] = AOS_Infiltration(Soil,NewCond,Infl,...
-    Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc,Runoff,GrowingSeason,CRSSD);
+    Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc,Runoff,GrowingSeason);
 
 % 8. Capillary rise
 [NewCond,CR] = AOS_CapillaryRise(Soil,Groundwater,NewCond,FluxOut);
-
 
 % 9. Check germination
 NewCond = AOS_Germination(NewCond,Soil,Crop,GDD,GrowingSeason);
@@ -123,10 +118,8 @@ NewCond = AOS_HIrefCurrentDay(NewCond,Crop,GrowingSeason);
 % 16. Biomass accumulation
 NewCond = AOS_BiomassAccumulation(Crop,NewCond,Tr,TrPot_NS,Et0,GrowingSeason);
 
-
-
 % 17. Harvest index
-NewCond = AOS_HarvestIndex(Soil,Crop,NewCond,Et0,Tmax,Tmin,GrowingSeason,FieldMngt);
+NewCond = AOS_HarvestIndex(Soil,Crop,NewCond,Et0,Tmax,Tmin,GrowingSeason);
 
 % 18. Crop yield
 if GrowingSeason == true
@@ -149,14 +142,7 @@ end
 % 20. Update net irrigation to add any pre irrigation
 IrrNet = IrrNet+PreIrr;
 NewCond.IrrNetCum = NewCond.IrrNetCum+PreIrr;
-
-%21. get Ts , Tsf, deltaT to print them
-[deltaT, Ts, Tsf]=temperatureincreaseundermulch(Crop,NewCond);
-if FieldMngt.Mulches ~='Y'
-    Tsf=0;
-	deltaT=0;
-end
-	
+    
 %% Update model outputs %%
 Outputs = AOS_InitialiseStruct.Outputs;
 row_day = AOS_ClockStruct.TimeStepCounter;
@@ -182,11 +168,11 @@ Outputs.WaterContents(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
 % Water fluxes
 Outputs.WaterFluxes(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
     GrowingSeason,Wr,NewCond.zGW,NewCond.SurfaceStorage,IrrDay,Infl,Runoff,...
-    DeepPerc,CR,GwIn,Es,EsPot,Tr,TrPot,CRSSD];
+    DeepPerc,CR,GwIn,Es,EsPot,Tr,TrPot];
 % Crop growth
 Outputs.CropGrowth(row_day,4:end) = [AOS_ClockStruct.TimeStepCounter,...
     GrowingSeason,GDD,NewCond.GDDcum,NewCond.Zroot,NewCond.CC,NewCond.CC_NS,...
-    NewCond.B,NewCond.B_NS,NewCond.HI,NewCond.HIadj,NewCond.Y,Ts,Tsf,deltaT];
+    NewCond.B,NewCond.B_NS,NewCond.HI,NewCond.HIadj,NewCond.Y];
 % Final output (if at end of growing season) 
 if AOS_ClockStruct.SeasonCounter > 0
     if ((NewCond.CropMature == true) || (NewCond.CropDead == true) ||...

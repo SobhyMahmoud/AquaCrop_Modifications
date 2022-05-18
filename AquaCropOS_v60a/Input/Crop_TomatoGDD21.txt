@@ -31,7 +31,7 @@
 0.0120      : Maximum root water extraction at the bottom of the root zone (m3/m3/day)
 20          : Soil surface area (cm2) covered by an individual seedling at 90% emergence
 16667       : Number of plants per hectare
-0.70        : Maximum canopy cover (fraction of soil cover)
+0.80        : Maximum canopy cover (fraction of soil cover)
 0.06482     : Canopy decline coefficient (fraction per GDD/calendar day)
 0.1908      : Canopy growth coefficient (fraction per GDD)
 1.1         : Crop coefficient when canopy growth is complete but prior to senescence

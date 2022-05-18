@@ -105,7 +105,7 @@ elseif Groundwater.WaterTable == 1 % Water table present
                 MaxCR = 0;
             else
                 NewCond.th(compi) = NewCond.th_fc_Adj(compi);
-                CRcomp   = dth*1000*Soil.Comp.dz(compi);
+                CRcomp = dth*1000*Soil.Comp.dz(compi);
                 MaxCR = (Krel*MaxCR)-CRcomp;
             end
             WCr = WCr+CRcomp;

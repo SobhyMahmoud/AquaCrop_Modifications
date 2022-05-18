@@ -1,5 +1,5 @@
 function [NewCond,DeepPerc,RunoffTot,Infl,FluxOut] = AOS_Infiltration(Soil,...
-    InitCond,Infl,Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc0,Runoff0,GrowingSeason,CRSSD)
+    InitCond,Infl,Irr,IrrMngt,FieldMngt,FluxOut,DeepPerc0,Runoff0,GrowingSeason)
 % Function to infiltrate incoming water (rainfall and irrigation)
 
 %% Store initial conditions in new structure for updating %%
@@ -72,24 +72,6 @@ end
 ii = 0;
 Runoff = 0;
 
-%% Perform calculations %%
-    % Find compartment mid-points
-    zBot = cumsum(Soil.Comp.dz);
-    zTop = zBot-Soil.Comp.dz;
-    zMid = (zTop+zBot)/2;
-   
-    idx = find(zMid >= IrrMngt.zdripper,1);
-   
-    if idx > 0
-        ii = idx-1;
-    end
-    
-   % [NewCondSSD,CRSSD] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,NewCond,FluxOut);
-if InitCond.DAP == 2
-    InitCond.DAP
-end  
-   ToStore = ToStore - CRSSD;
-    
 %% Infiltrate incoming water %%
 if ToStore > 0
     while (ToStore > 0) && (ii < Soil.nComp)
