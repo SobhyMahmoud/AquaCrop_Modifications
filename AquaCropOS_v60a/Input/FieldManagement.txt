@@ -1,5 +1,5 @@
 %% --------------- Field management inputs for AquaCropOS -------------- %%
-Y               : Soil surface covered by mulches (Y or N)
+N               : Soil surface covered by mulches (Y or N)
 N               : Surface bunds present (Y or N)
 N               : Field conditions affect curve number (Y or N)
 N               : Management practices fully inhibit surface runoff (Y or N)
