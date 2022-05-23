@@ -26,9 +26,11 @@ else
 Tsf=7.5725+0.8303*Tmean;
 end;
 
+c=0;
 %gdd=GDDcum(Crop.Canopy10Pct);
 GDD = NewCond.GDDcum;
 %GDD = Tmean-Crop.Tbase;
+if isfield(Crop,'Canopy10Pct') && isfield(Crop,'Flowering')
 if GDD> 0 && GDD<= Crop.Canopy10Pct
 %C is a coefficient from 0 to 1, C=0.51 from emergence to recovering,
 %c=0.22 from recovering to flowering and equal zero after flower because the film cover will be heavily shaded.
@@ -38,8 +40,12 @@ elseif GDD>Crop.Canopy10Pct && GDD <=Crop.Flowering
 elseif GDD== 0 || GDD>Crop.Flowering
     c=0;
 end
-
+end
+if c ~=0
 deltaT=c *(Tsf-Ts)*(Tmean-Crop.Tbase)/(Ts-Crop.Tbase);
+else
+   deltaT=0; 
+end    
 
 %Crop.deltaT= deltaT;
 %Crop.Tsf=Tsf;

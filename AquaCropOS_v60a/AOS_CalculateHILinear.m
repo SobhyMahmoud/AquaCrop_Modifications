@@ -9,7 +9,7 @@ tmax = Crop.YldFormCD;
 HIest = 0;
 HIprev = Crop.HIini;
 % Iterate to find linear switch point
-while (HIest <= Crop.HI0) && (ti < tmax)
+while all(HIest <= Crop.HI0) && all (ti < tmax)
     ti = ti+1;
     HInew = (Crop.HIini*Crop.HI0)/(Crop.HIini+(Crop.HI0-Crop.HIini)*...
         exp(-Crop.HIGC*ti));

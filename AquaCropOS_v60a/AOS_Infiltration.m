@@ -72,13 +72,18 @@ end
 ii = 0;
 Runoff = 0;
 
+if isfield(IrrMngt,'zdripper')
+   zdripper = IrrMngt.zdripper;
+else
+    zdripper =0;
+end    
 %% Perform calculations %%
     % Find compartment mid-points
     zBot = cumsum(Soil.Comp.dz);
     zTop = zBot-Soil.Comp.dz;
     zMid = (zTop+zBot)/2;
    
-    idx = find(zMid >= IrrMngt.zdripper,1);
+    idx = find(zMid >= zdripper,1);
    
     if idx > 0
         ii = idx-1;

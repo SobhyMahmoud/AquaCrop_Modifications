@@ -1,17 +1,19 @@
 function [NewCond,CrTot] = AOS_CapillaryRiseSSD(Soil,IrrMngt,Irr,InitCond,FluxOut)
 % Function to calculate capillary rise from a subsurface drip irrigation(SSD)
 
+
 %% Store initial conditions for updating %%
 NewCond = InitCond;
-
+CrTot = 0;
+if IrrMngt.IrrMethod ~= -99
 %% Get emitter depth %%
+
 zEmitter = IrrMngt.zdripper;
 
 if InitCond.DAP == 2
     InitCond.DAP
 end    
 
-CrTot = 0;
 % Note: irrigation amount adjusted for specified application efficiency
 
     NetIrr =(Irr*(IrrMngt.AppEff/100));
@@ -151,6 +153,6 @@ elseif IrrMngt.zdripper > 0  % SSD present
     % Store total depth of capillary rise
     CrTot = WCr;
 end
-
+end
 end
 
