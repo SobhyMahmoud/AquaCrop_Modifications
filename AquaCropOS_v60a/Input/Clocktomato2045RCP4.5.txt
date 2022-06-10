@@ -1,4 +1,4 @@
 %% --------------- Clock parameter inputs for AquaCropOS --------------- %%
-2035-09-06      : Simulation start time (yyyy-mm-dd)
-2035-12-31      : SimulationEndTime (yyyy-mm-dd)
+2045-09-06      : Simulation start time (yyyy-mm-dd)
+2045-12-31      : SimulationEndTime (yyyy-mm-dd)
 N               : Simulate off-season (Y or N)
