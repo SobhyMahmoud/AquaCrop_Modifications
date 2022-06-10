@@ -1,6 +1,6 @@
 %% ------------------ Input filenames for AquaCropOS ------------------ %%
-Clocktomato2035RCP4.5.txt           : Clock filename
-WeatherShoubra_RCP4.5_2030_2040.txt  : Weather filename
+Clocktomato2045RCP4.5.txt           : Clock filename
+WeatherShoubra_RCP4.5_2040_2050.txt  : Weather filename
 CropMix.txt                     : Crop mix filename
 Soil.txt                        : Soil parameters filename
 FieldManagement_OffSeason.txt   : Field management (fallow period) filename
